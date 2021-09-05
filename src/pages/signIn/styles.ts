@@ -6,13 +6,23 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #2f373d;
 `;
 
 export const Content = styled.div`
-    position: relative;
-    width: 379px;
+    width: 500px;
     height: 356px;
-    background-color: #fff;
+    display flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-primary);
+    border-radius: 9px;
+
+    h1 {
+        color: var(--color-secondary);
+        text-align: center;
+        margin: 40px 0;
+    }
 `;
 
 export const Header = styled.header`
