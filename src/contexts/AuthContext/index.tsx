@@ -1,17 +1,17 @@
 import React, { FC, createContext, useState } from 'react';
 import { setCookie, destroyCookie } from 'nookies';
-import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { AuthContextType, UserInfoType, SignInDataType } from './types';
 
-import { signInRequest } from './utils';
 import { api as Api } from '../../services/api';
+import history from '../../services/history';
+import { signInRequest } from './utils';
+
 export const AuthContext = createContext({} as AuthContextType);
 
 const AuthProvider: FC = ({ children }) => {
     const [user, setUser] = useState<UserInfoType | null>(null);
-    const Router = useHistory();
 
     const isAuthenticated = !!user;
 
@@ -24,23 +24,21 @@ const AuthProvider: FC = ({ children }) => {
         if (userInfo) {
             const { user, token } = userInfo;
 
-            setCookie(
-                undefined,
-                '@moto-user-auth-token',
-                JSON.stringify({ user, token }),
-                {
-                    maxAge: 60 * 60 * 1, // 1 hour
-                },
-            );
+            setCookie(undefined, '@moto-user-auth-token', token, {
+                maxAge: 60 * 60 * 1, // 1 hour
+            });
+
+            localStorage.setItem('user-info', JSON.stringify(user));
 
             Api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
             setUser(user);
 
-            // toast.success('Seja Bem-vindo!');
-            Router.push('/dashboard');
+            history.push('/dashboard');
 
-            // setTimeout(() => Router.push('/dashboard'), 3000);
+            toast.success('Bem-vindo!');
+        } else {
+            toast.error('Invalid user or password!');
         }
     }
 

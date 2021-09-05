@@ -26,7 +26,7 @@ const SignIn: FC<SignInProps> = () => {
             Router.push('/dashboard');
         } catch (e) {
             console.log('Error: ', e);
-            //toast.error('Usuário ou senha errada!');
+            toast.error('Usuário ou senha errada!');
         }
     }
 
