@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     width: 500px;
-    height: 356px;
+    height: 370px;
     display flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +22,10 @@ export const Content = styled.div`
         color: var(--color-secondary);
         text-align: center;
         margin: 40px 0;
+    }
+
+    .btn-sign-in {
+        margin-top: 20px;
     }
 `;
 

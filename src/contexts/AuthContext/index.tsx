@@ -1,4 +1,4 @@
-import React, { FC, createContext, useState } from 'react';
+import React, { FC, createContext, useState, useEffect } from 'react';
 import { setCookie, destroyCookie } from 'nookies';
 import { AuthContextType, UserInfoType, SignInDataType } from './types';
 
@@ -19,6 +19,8 @@ const AuthProvider: FC = ({ children }) => {
             password,
         });
 
+        console.log('USer: ', userInfo);
+
         if (userInfo) {
             const { user, token } = userInfo;
 
@@ -38,6 +40,16 @@ const AuthProvider: FC = ({ children }) => {
             Router.push('/dashboard');
         }
     }
+
+    // useEffect(() => {
+    //     (async () => {
+    //         const a = await signIn({
+    //             email: 'manager@email.com',
+    //             password: 'manager',
+    //         });
+    //         console.log('Users: ', a);
+    //     })();
+    // }, []);
 
     function signOut() {
         destroyCookie(undefined, '@moto-user-auth-token', {

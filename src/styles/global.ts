@@ -33,5 +33,6 @@ export default createGlobalStyle`
   .is-danger {
       color: red;
       font-size: 14px;
+      margin-top: 10px;
   }
 `;

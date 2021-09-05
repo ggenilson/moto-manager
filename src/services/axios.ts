@@ -5,7 +5,7 @@ export function getAPIClient() {
     const { '@moto-user-auth-token': token } = parseCookies();
 
     const api = axios.create({
-        baseURL: process.env.API_URL,
+        baseURL: 'http://localhost:8000',
     });
 
     api.interceptors.request.use(config => {
