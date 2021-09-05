@@ -1,29 +1,32 @@
 import React, { FC, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { parseCookies } from 'nookies';
 import { Formik, Form } from 'formik';
-import Router from '../../services/history';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 import { AuthContext } from '../../contexts';
 
-import { ILoginFormValue } from './types';
+import { ILoginFormValue, SignInProps } from './types';
 
 import { validationSchema } from './validationSchema';
 
 import { Container, Content } from './styles';
 
-const SignIn: FC = () => {
+const SignIn: FC<SignInProps> = () => {
     const initialValues: ILoginFormValue = { email: '', password: '' };
     const { signIn } = useContext(AuthContext);
+    const Router = useHistory();
 
     async function handleSignIn(data: ILoginFormValue) {
         try {
             await signIn(data);
+            Router.push('/dashboard');
         } catch (e) {
             console.log('Error: ', e);
-            //   toast.error('Usuário ou senha errada!');
+            //toast.error('Usuário ou senha errada!');
         }
     }
 

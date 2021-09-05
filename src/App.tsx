@@ -1,17 +1,20 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
-import history from './services/history';
 
 import AuthProvider from './contexts/AuthContext';
 
 import 'boxicons/css/boxicons.min.css';
 import GlobalStyle from './styles/global';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => (
     <AuthProvider>
-        <Router history={history}>
+        <Router>
             <Routes />
+            <ToastContainer />
             <GlobalStyle />
         </Router>
     </AuthProvider>

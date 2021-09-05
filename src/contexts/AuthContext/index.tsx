@@ -1,15 +1,17 @@
-import React, { FC, createContext, useState, useEffect } from 'react';
+import React, { FC, createContext, useState } from 'react';
 import { setCookie, destroyCookie } from 'nookies';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import { AuthContextType, UserInfoType, SignInDataType } from './types';
 
 import { signInRequest } from './utils';
 import { api as Api } from '../../services/api';
-import Router from '../../services/history';
-
 export const AuthContext = createContext({} as AuthContextType);
 
 const AuthProvider: FC = ({ children }) => {
     const [user, setUser] = useState<UserInfoType | null>(null);
+    const Router = useHistory();
 
     const isAuthenticated = !!user;
 
@@ -18,8 +20,6 @@ const AuthProvider: FC = ({ children }) => {
             email,
             password,
         });
-
-        console.log('USer: ', userInfo);
 
         if (userInfo) {
             const { user, token } = userInfo;
@@ -37,19 +37,12 @@ const AuthProvider: FC = ({ children }) => {
 
             setUser(user);
 
+            // toast.success('Seja Bem-vindo!');
             Router.push('/dashboard');
+
+            // setTimeout(() => Router.push('/dashboard'), 3000);
         }
     }
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const a = await signIn({
-    //             email: 'manager@email.com',
-    //             password: 'manager',
-    //         });
-    //         console.log('Users: ', a);
-    //     })();
-    // }, []);
 
     function signOut() {
         destroyCookie(undefined, '@moto-user-auth-token', {
