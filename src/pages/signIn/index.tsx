@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { Formik, Form } from 'formik';
 
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 import { ILoginFormValue } from './types';
 
 import { Container, Content } from './styles';
@@ -41,6 +42,8 @@ const SignIn: FC = () => {
                             label="password"
                             icon="bx bx-lock-alt"
                         />
+
+                        <Button value="sign in" />
                     </Form>
                 </Formik>
             </Content>
