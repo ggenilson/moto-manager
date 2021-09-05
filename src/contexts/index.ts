@@ -1,1 +1,1 @@
-export { AuthUserContext, default } from './authUser';
+export { AuthContext, default } from './AuthContext';
