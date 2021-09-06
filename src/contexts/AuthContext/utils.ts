@@ -8,17 +8,9 @@ export async function signInRequest(
         const userInfo = await Api.post('/user/login', data);
 
         if (userInfo) {
-            const { _id, name, email, access, token } = userInfo?.data;
+            const { user, token } = userInfo?.data;
 
-            return {
-                user: {
-                    _id,
-                    access,
-                    name,
-                    email,
-                },
-                token,
-            };
+            return { user, token };
         }
 
         return null;
