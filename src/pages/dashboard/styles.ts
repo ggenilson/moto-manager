@@ -14,7 +14,8 @@ export const Container = styled.div`
 export const Content = styled.div`
     background-color: #1d1e42;
     width: 1200px;
-    height: 600px;
+    min-height: 600px;
+    height: auto;
     border-radius: 7px;
 `;
 
@@ -102,13 +103,19 @@ export const BodyItem = styled.div`
 export const LeftSide = styled.div``;
 
 export const CenterSide = styled.div`
-    width: 59%;
+    width: 90%;
     min-height: 10px;
     height: auto;
     background-color: #141432;
     border-radius: 10px;
-    margin-right: 100px;
+    margin-left: 25px;
     padding: 29px;
+
+    h2 {
+        margin-bottom: 20px;
+        font-weigth: bold;
+        color: #9d9fb2;
+    }
 `;
 
 export const RightSide = styled.div`

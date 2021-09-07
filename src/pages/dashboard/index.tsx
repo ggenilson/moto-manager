@@ -79,12 +79,10 @@ const Dashboard: FC = () => {
                     </LeftSide>
 
                     <CenterSide>
-                        <h1>Center</h1>
-                    </CenterSide>
+                        <h2>Driver</h2>
 
-                    <RightSide>
                         <Driver />
-                    </RightSide>
+                    </CenterSide>
                 </Body>
             </Content>
         </Container>
