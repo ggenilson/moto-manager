@@ -15,6 +15,7 @@ export type UserInfoType = {
     access: string;
     name: string;
     email: string;
+    createdAt?: string;
 };
 
 export type UserInfoReturnType = {

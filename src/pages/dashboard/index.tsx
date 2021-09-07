@@ -10,6 +10,7 @@ import { getUserInfo } from '../../utils';
 import { Options } from './utils';
 
 import Driver from './driver';
+import ListDriver from './driver/get';
 
 import {
     Container,
@@ -21,7 +22,6 @@ import {
     UserInfo,
     LeftSide,
     CenterSide,
-    RightSide,
     BodyItem,
 } from './styles';
 
@@ -81,7 +81,7 @@ const Dashboard: FC = () => {
                     <CenterSide>
                         <h2>Driver</h2>
 
-                        <Driver />
+                        <ListDriver />
                     </CenterSide>
                 </Body>
             </Content>

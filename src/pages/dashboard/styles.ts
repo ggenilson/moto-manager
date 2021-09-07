@@ -118,12 +118,6 @@ export const CenterSide = styled.div`
     }
 `;
 
-export const RightSide = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-`;
-
 export const UserInfo = styled.div`
     display: flex;
     flex-direction: column;
