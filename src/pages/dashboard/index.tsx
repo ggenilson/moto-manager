@@ -6,8 +6,10 @@ import { User } from '../../assets';
 
 import { AuthContext } from '../../contexts';
 
+import { getUserInfo } from '../../utils';
 import { Options } from './utils';
-import { getUserInfo } from '../../utils/index';
+
+import Driver from './driver';
 
 import {
     Container,
@@ -49,6 +51,7 @@ const Dashboard: FC = () => {
                             <span>{getUserInfo()?.name}</span>
                             <span>{getUserInfo()?.access}</span>
                         </UserInfo>
+                        <i className="bx bx-log-in" />
                     </Right>
                 </Header>
 
@@ -72,7 +75,7 @@ const Dashboard: FC = () => {
                     </CenterSide>
 
                     <RightSide>
-                        <h1>Right</h1>
+                        <Driver />
                     </RightSide>
                 </Body>
             </Content>

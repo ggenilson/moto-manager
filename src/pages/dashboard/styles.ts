@@ -23,6 +23,7 @@ export const Header = styled.div`
     // background-color: var(--color-secondary);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+    padding-top: 10px;
     height: 50px;
     // box-shadow: 0 0 10px #000;
     display: flex;
@@ -57,6 +58,12 @@ export const Right = styled.div`
 
     span {
         font-size: 16px;
+        color: #fff;
+    }
+
+    i {
+        margin-left: 25px;
+        font-size: 25px;
         color: #fff;
     }
 `;
