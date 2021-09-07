@@ -6,7 +6,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2f373d;
+    background-color: var(--color-primary);
 `;
 
 export const Content = styled.div`
@@ -15,7 +15,7 @@ export const Content = styled.div`
     display flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-primary);
+    background-color: #1d1e42;
     border-radius: 9px;
 
     h1 {

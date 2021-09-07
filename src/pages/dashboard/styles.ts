@@ -7,12 +7,12 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     // align-items: center;
-    background-color: #2f373d;
+    background-color: var(--color-primary);
     padding: 40px;
 `;
 
 export const Content = styled.div`
-    background-color: var(--color-primary);
+    background-color: #1d1e42;
     width: 1200px;
     height: 600px;
     border-radius: 7px;
@@ -20,11 +20,11 @@ export const Content = styled.div`
 
 export const Header = styled.div`
     width: 100%;
-    background-color: var(--color-secondary);
+    // background-color: var(--color-secondary);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     height: 50px;
-    box-shadow: 0 0 10px #000;
+    // box-shadow: 0 0 10px #000;
     display: flex;
     justify-content: space-between;
 
@@ -38,6 +38,11 @@ export const Left = styled.div`
     display: flex;
     align-items: center;
     color: #fff;
+    margin-left: 20px;
+
+    h2 {
+        font-weight: bold;
+    }
 `;
 
 export const Right = styled.div`
@@ -57,10 +62,62 @@ export const Right = styled.div`
 `;
 
 export const Body = styled.div`
+    // padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     padding: 40px;
 `;
 
 export const BodyItem = styled.div`
-    width: 100px;
-    height: 90px;
+    width: 200px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-radius: 29px;
+    cursor: pointer;
+    padding-left: 10px;
+    margin-bottom: 20px;
+
+    ${props => props.className === 'active' && `background-color: #26264f;`}
+
+    i {
+        margin-right: 20px;
+        margin-left: 10px;
+        font-size: 20px;
+        color: #534eea;
+    }
+
+    span {
+        color: #9d9fb2;
+        font-size: 20px;
+    }
+`;
+
+export const LeftSide = styled.div``;
+
+export const CenterSide = styled.div`
+    width: 59%;
+    min-height: 10px;
+    height: auto;
+    background-color: #141432;
+    border-radius: 10px;
+    margin-right: 100px;
+    padding: 29px;
+`;
+
+export const RightSide = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const UserInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    span {
+        &:nth-child(2) {
+            font-size: 12px;
+        }
+    }
 `;

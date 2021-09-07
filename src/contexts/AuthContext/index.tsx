@@ -2,7 +2,12 @@ import React, { FC, createContext, useState } from 'react';
 import { setCookie, destroyCookie } from 'nookies';
 import { toast } from 'react-toastify';
 
-import { AuthContextType, UserInfoType, SignInDataType } from './types';
+import {
+    AuthContextType,
+    UserInfoType,
+    SignInDataType,
+    DataValueType,
+} from './types';
 
 import { api as Api } from '../../services/api';
 import history from '../../services/history';
@@ -15,7 +20,10 @@ const AuthProvider: FC = ({ children }) => {
 
     const isAuthenticated = !!user;
 
-    async function signIn({ email, password }: SignInDataType) {
+    async function signIn(
+        { email, password }: SignInDataType,
+        dataValue: DataValueType,
+    ) {
         const userInfo = await signInRequest({
             email,
             password,
@@ -32,13 +40,13 @@ const AuthProvider: FC = ({ children }) => {
 
             Api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-            setUser(user);
-
             history.push('/dashboard');
-
             toast.success('Bem-vindo!');
+            setUser(user);
+            dataValue(true);
         } else {
             toast.error('Invalid user or password!');
+            dataValue(false);
         }
     }
 

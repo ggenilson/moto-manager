@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   :root {
-    --color-primary: #0e1011;
-    --color-secondary: #08a7f3;
+    --color-primary: #191a30;
+    --color-secondary: #4f2ed0;
   }
 
   * {
@@ -18,7 +18,7 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: 'Arial', serif;
+    font-family: 'Roboto', serif;
     font-size: 16px;
   }
 

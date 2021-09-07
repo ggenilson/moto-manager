@@ -2,11 +2,12 @@ import React, { FC, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { parseCookies } from 'nookies';
 
-import { Taxi } from '../../assets';
+import { User } from '../../assets';
 
 import { AuthContext } from '../../contexts';
 
 import { Options } from './utils';
+import { getUserInfo } from '../../utils/index';
 
 import {
     Container,
@@ -15,6 +16,10 @@ import {
     Left,
     Right,
     Body,
+    UserInfo,
+    LeftSide,
+    CenterSide,
+    RightSide,
     BodyItem,
 } from './styles';
 
@@ -35,24 +40,40 @@ const Dashboard: FC = () => {
             <Content>
                 <Header>
                     <Left>
-                        <img src={Taxi} alt="logo" />
-
                         <h2>Moto Manager</h2>
                     </Left>
 
                     <Right>
-                        <img src={Taxi} alt="logo" />
-                        <span>Genilson Araújo</span>
+                        <img src={User} alt="user" />
+                        <UserInfo>
+                            <span>{getUserInfo()?.name}</span>
+                            <span>{getUserInfo()?.access}</span>
+                        </UserInfo>
                     </Right>
                 </Header>
 
                 <Body>
-                    {Options.map((value, id) => (
-                        <BodyItem key={`body-item-${id}`}>
-                            <i className={value.icon} />
-                            <span>{value.name}</span>
-                        </BodyItem>
-                    ))}
+                    <LeftSide>
+                        {Options.map((value, id) => (
+                            <BodyItem
+                                key={`body-item-${id}`}
+                                className={value.status}
+                            >
+                                <div>
+                                    <i className={value.icon} />
+                                </div>
+                                <span>{value.name}</span>
+                            </BodyItem>
+                        ))}
+                    </LeftSide>
+
+                    <CenterSide>
+                        <h1>Center</h1>
+                    </CenterSide>
+
+                    <RightSide>
+                        <h1>Right</h1>
+                    </RightSide>
                 </Body>
             </Content>
         </Container>

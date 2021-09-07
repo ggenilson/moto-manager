@@ -1,4 +1,7 @@
 * {
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+    color: #151616;
 }
+
+/* //var corRandom = '#'+Math.floor(Math.random()*16777215).toString(16); */

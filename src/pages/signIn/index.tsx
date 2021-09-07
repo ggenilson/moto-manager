@@ -22,8 +22,7 @@ const SignIn: FC<SignInProps> = () => {
 
     async function handleSignIn(data: ILoginFormValue) {
         try {
-            await signIn(data);
-            Router.push('/dashboard');
+            await signIn(data, res => res && Router.push('/dashboard'));
         } catch (e) {
             console.log('Error: ', e);
             toast.error('Usuário ou senha errada!');
@@ -53,7 +52,7 @@ const SignIn: FC<SignInProps> = () => {
                         <h1>SIGN IN</h1>
 
                         <Input
-                            type="text"
+                            type="email"
                             name="email"
                             label="email"
                             icon="bx bx-mail-send"

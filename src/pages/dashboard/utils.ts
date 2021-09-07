@@ -10,9 +10,11 @@ export const Options: OptionType[] = [
     {
         name: 'Driver',
         icon: 'bx bxs-car',
+        status: 'active',
     },
     {
         name: 'Attendance',
         icon: 'bx bx-user',
+        status: 'no-active',
     },
 ];

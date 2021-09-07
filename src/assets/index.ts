@@ -1,3 +1,3 @@
-import Taxi from './taxi.jpg';
+import User from './user.jpg';
 
-export { Taxi };
+export { User };

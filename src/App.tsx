@@ -4,11 +4,13 @@ import Routes from './routes';
 
 import AuthProvider from './contexts/AuthContext';
 
-import 'boxicons/css/boxicons.min.css';
-import GlobalStyle from './styles/global';
+import './styles/index.css';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import 'boxicons/css/boxicons.min.css';
+import GlobalStyle from './styles/global';
 
 const App = () => (
     <AuthProvider>
