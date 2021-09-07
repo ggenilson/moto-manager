@@ -54,6 +54,7 @@ const AuthProvider: FC = ({ children }) => {
         destroyCookie(undefined, '@moto-user-auth-token', {
             path: '/',
         });
+        history.push('/');
     }
 
     return (

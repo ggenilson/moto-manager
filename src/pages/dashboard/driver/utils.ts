@@ -1,8 +1,5 @@
 import { api as Api } from '../../../services/api';
-import {
-    SignInDataType,
-    UserInfoReturnType,
-} from '../../../contexts/AuthContext/types';
+import { UserInfoReturnType } from '../../../contexts/AuthContext/types';
 import { IFormValue } from './types';
 
 export async function saveDriver(

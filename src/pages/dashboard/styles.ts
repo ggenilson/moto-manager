@@ -20,12 +20,10 @@ export const Content = styled.div`
 
 export const Header = styled.div`
     width: 100%;
-    // background-color: var(--color-secondary);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     padding-top: 10px;
     height: 50px;
-    // box-shadow: 0 0 10px #000;
     display: flex;
     justify-content: space-between;
 
@@ -65,14 +63,14 @@ export const Right = styled.div`
         margin-left: 25px;
         font-size: 25px;
         color: #fff;
+        cursor: pointer;
     }
 `;
 
 export const Body = styled.div`
-    // padding: 40px;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     padding: 40px;
 `;
 
@@ -116,6 +114,7 @@ export const CenterSide = styled.div`
 export const RightSide = styled.div`
     display: flex;
     flex-direction: column;
+    width: 200px;
 `;
 
 export const UserInfo = styled.div`

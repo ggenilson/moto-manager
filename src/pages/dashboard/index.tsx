@@ -47,11 +47,19 @@ const Dashboard: FC = () => {
 
                     <Right>
                         <img src={User} alt="user" />
+
                         <UserInfo>
                             <span>{getUserInfo()?.name}</span>
                             <span>{getUserInfo()?.access}</span>
                         </UserInfo>
-                        <i className="bx bx-log-in" />
+
+                        <i
+                            className="bx bx-log-in"
+                            onClick={() => {
+                                signOut();
+                                Router.push('/');
+                            }}
+                        />
                     </Right>
                 </Header>
 
