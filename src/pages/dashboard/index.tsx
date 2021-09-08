@@ -5,8 +5,9 @@ import { parseCookies } from 'nookies';
 
 import { User } from '../../assets';
 
-import { AuthContext } from '../../contexts';
+import { AuthContext, InfoCardContext } from '../../contexts';
 import { ApplicationState, saveMenuClicked } from '../../state';
+import InfoCardProvider from '../../contexts/InfoCard';
 
 import { getUserInfo } from '../../utils';
 import { Options } from './utils';
@@ -33,6 +34,7 @@ const Dashboard: FC = () => {
     const menu = useSelector((state: ApplicationState) => state.menu);
     const dispatch = useDispatch();
     const { signOut } = useContext(AuthContext);
+    const { text } = useContext(InfoCardContext);
     const Router = useHistory();
 
     function verifyAccess(access: string[]) {
@@ -104,7 +106,7 @@ const Dashboard: FC = () => {
                         <HeaderCenterSide>
                             <i className="bx bx-info-square" />
 
-                            <span>View</span>
+                            <span>{text}</span>
                         </HeaderCenterSide>
 
                         {menu === MenuType.DRIVER ? (

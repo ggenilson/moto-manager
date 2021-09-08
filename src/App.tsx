@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
 
+import InfoCardProvider from './contexts/InfoCard';
 import AuthProvider from './contexts/AuthContext';
 import { store } from './state';
 
@@ -17,11 +18,13 @@ import GlobalStyle from './styles/global';
 const App = () => (
     <Provider store={store}>
         <AuthProvider>
-            <Router>
-                <Routes />
-                <ToastContainer />
-                <GlobalStyle />
-            </Router>
+            <InfoCardProvider>
+                <Router>
+                    <Routes />
+                    <ToastContainer />
+                    <GlobalStyle />
+                </Router>
+            </InfoCardProvider>
         </AuthProvider>
     </Provider>
 );
