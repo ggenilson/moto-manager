@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 
 export const validationSchema = Yup.object({
-    name: Yup.string().required('Campo obrigatório*'),
-    email: Yup.string().email('Email inválido').required('Campo obrigatório*'),
-    password: Yup.string().required('Campo obrigatório*'),
+    name: Yup.string().required('Required field*'),
+    email: Yup.string().email('Email inválido').required('Required field*'),
+    password: Yup.string().required('Required field*'),
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        .required('Campo obrigatório*'),
+        .required('Required field*'),
 });

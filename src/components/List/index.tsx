@@ -12,7 +12,7 @@ import {
     AddButton,
 } from './styles';
 
-const List: FC<ListProps> = ({ data, fields }) => {
+const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
     return (
         <Container>
             <TopItems>
@@ -25,7 +25,7 @@ const List: FC<ListProps> = ({ data, fields }) => {
                     simpleInput={true}
                 />
 
-                <AddButton>
+                <AddButton onClick={() => onAddClick()}>
                     <i className="bx bx-plus" />
                 </AddButton>
             </TopItems>

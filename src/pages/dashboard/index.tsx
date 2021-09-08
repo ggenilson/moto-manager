@@ -9,8 +9,8 @@ import { AuthContext } from '../../contexts';
 import { getUserInfo } from '../../utils';
 import { Options } from './utils';
 
-import Driver from './driver';
-import ListDriver from './driver/get';
+// import Driver from './driver';
+import Driver from './driver/get';
 
 import {
     Container,
@@ -79,7 +79,7 @@ const Dashboard: FC = () => {
                     </LeftSide>
 
                     <CenterSide>
-                        <ListDriver />
+                        <Driver />
                     </CenterSide>
                 </Body>
             </Content>

@@ -68,7 +68,10 @@ const SignIn: FC<SignInProps> = () => {
                         <Button
                             type="submit"
                             value="sign in"
-                            style={{ marginTop: '25px' }}
+                            style={{
+                                marginTop: '25px',
+                                justifyContent: 'flex-end',
+                            }}
                         />
                     </Form>
                 </Formik>

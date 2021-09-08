@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import { toast } from 'react-toastify';
 
 import { validationSchema } from './validationSchema';
-import { IFormValue } from './types';
+import { DriverProps, IFormValue } from './types';
 
 import { saveDriver } from './utils';
 
@@ -11,7 +11,9 @@ import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import { DataValueType } from '../../../contexts/AuthContext/types';
 
-const Driver: FC = () => {
+import { ListButtons } from './styles';
+
+const Driver: FC<DriverProps> = ({ whatRender = () => {} }) => {
     const initialValues: IFormValue = {
         name: '',
         email: '',
@@ -26,13 +28,13 @@ const Driver: FC = () => {
         const res = await saveDriver({ name, email, password });
 
         if (res) {
-            toast.success('Driver inserido!');
+            toast.success('Sucess!');
             status(true);
 
             return;
         }
 
-        toast.error('Erro ao inserir o Driver!');
+        toast.error('Error!');
         status(false);
 
         return;
@@ -77,11 +79,23 @@ const Driver: FC = () => {
                     icon="bx bx-lock-alt"
                 />
 
-                <Button
-                    type="submit"
-                    value="Salvar"
-                    style={{ marginTop: '25px' }}
-                />
+                <ListButtons>
+                    <Button
+                        type="button"
+                        value="Back"
+                        style={{ marginTop: '25px' }}
+                        onClick={() => whatRender(0)}
+                    />
+
+                    <Button
+                        type="submit"
+                        value="Save"
+                        style={{
+                            marginTop: '25px',
+                            justifyContent: 'flex-end',
+                        }}
+                    />
+                </ListButtons>
             </Form>
         </Formik>
     );

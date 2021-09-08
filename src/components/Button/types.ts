@@ -4,4 +4,5 @@ export type ButtonProps = {
     value: string;
     style: any;
     type: ButtonTypes;
+    onClick?: () => void;
 };

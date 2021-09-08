@@ -4,3 +4,7 @@ export interface IFormValue {
     password: string;
     confirmPassword?: string;
 }
+
+export type DriverProps = {
+    whatRender?: (value: number) => void;
+};
