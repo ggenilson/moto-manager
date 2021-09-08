@@ -13,8 +13,6 @@ const Get: FC = () => {
         (async () => {
             const res = await getDrivers();
 
-            console.log('Resp: ', res);
-
             setDrivers(res || []);
         })();
     }, []);

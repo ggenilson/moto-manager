@@ -27,4 +27,5 @@ export const Separator = styled.div`
 export const Icon = styled.div`
     font-size: 20px;
     color: var(--color-secondary);
+    padding-left: 10px;
 `;

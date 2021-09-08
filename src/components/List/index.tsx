@@ -2,18 +2,43 @@ import React, { FC } from 'react';
 
 import { ListProps } from './types';
 
-import { Container, ListItem } from './styles';
+import Input from '../Input';
+
+import {
+    Container,
+    ListItem,
+    TopItems,
+    BottomItems,
+    AddButton,
+} from './styles';
 
 const List: FC<ListProps> = ({ data, fields }) => {
     return (
         <Container>
-            {data.map((value, index) => (
-                <ListItem key={`list-item-${index}`}>
-                    {Object.keys(fields)?.map((val, i) => (
-                        <span key={`list-item-son-${i}`}>{value[val]}</span>
-                    ))}
-                </ListItem>
-            ))}
+            <TopItems>
+                <Input
+                    type="text"
+                    name="search"
+                    icon="bx bx-search-alt-2"
+                    label="Search..."
+                    classNameContainer="input-item"
+                    simpleInput={true}
+                />
+
+                <AddButton>
+                    <i className="bx bx-plus" />
+                </AddButton>
+            </TopItems>
+
+            <BottomItems>
+                {data.map((value, index) => (
+                    <ListItem key={`list-item-${index}`}>
+                        {Object.keys(fields)?.map((val, i) => (
+                            <span key={`list-item-son-${i}`}>{value[val]}</span>
+                        ))}
+                    </ListItem>
+                ))}
+            </BottomItems>
         </Container>
     );
 };

@@ -10,6 +10,7 @@ const Input: FC<InputProps> = ({
     className,
     icon,
     label,
+    simpleInput,
     ...otherProps
 }) => {
     if (!otherProps?.name) {
@@ -23,22 +24,37 @@ const Input: FC<InputProps> = ({
     );
 
     const Input = () => (
-        <Container>
+        <Container className={otherProps?.classNameContainer}>
             <Separator>
                 <Icon>
                     <i className={`bx ${icon}`} aria-hidden="true" />
                 </Icon>
 
-                <Field
-                    {...otherProps}
-                    type={type}
-                    className={`form-input ${className && className}`}
-                    placeholder={label}
-                    autoComplete="off"
-                />
+                {!simpleInput ? (
+                    <Field
+                        {...otherProps}
+                        type={type}
+                        className={`form-input ${className || ''}`}
+                        placeholder={label}
+                        autoComplete="off"
+                    />
+                ) : (
+                    <input
+                        {...otherProps}
+                        type={type}
+                        className={`form-input ${className && className}`}
+                        placeholder={label}
+                        autoComplete="off"
+                    />
+                )}
             </Separator>
 
-            <ErrorMessage name={otherProps?.name || ''} render={renderError} />
+            {!simpleInput && (
+                <ErrorMessage
+                    name={otherProps?.name || ''}
+                    render={renderError}
+                />
+            )}
         </Container>
     );
 

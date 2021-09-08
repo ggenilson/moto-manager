@@ -79,8 +79,6 @@ const Dashboard: FC = () => {
                     </LeftSide>
 
                     <CenterSide>
-                        <h2>Driver</h2>
-
                         <ListDriver />
                     </CenterSide>
                 </Body>
