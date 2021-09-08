@@ -75,3 +75,17 @@ export const RightFooter = styled.div`
     display: flex;
     align-items: center;
 `;
+
+export const HeaderList = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-secondary);
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    font-size: 16px;
+    color: #9d9fb2;
+    font-weight: bold;
+`;

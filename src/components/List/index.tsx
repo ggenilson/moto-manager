@@ -16,10 +16,16 @@ import {
     Footer,
     LeftFooter,
     RightFooter,
+    HeaderList,
 } from './styles';
 import { searchInArray } from './utils';
 
-const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
+const List: FC<ListProps> = ({
+    data,
+    fields,
+    onAddClick = () => {},
+    acceptButton,
+}) => {
     const [active, setActive] = useState<number>(0);
     const [newData, setNewData] = useState<any[]>([]);
     const [oldNewData, setOldNewData] = useState<any[]>([]);
@@ -87,19 +93,39 @@ const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
                 </AddButton>
             </TopItems>
 
+            <HeaderList>
+                {Object.keys(fields).map((value: any, index) => (
+                    <div key={`header-${index}`}>
+                        <span>{fields[value].title}</span>
+                    </div>
+                ))}
+            </HeaderList>
+
             <BottomItems>
                 {newData?.length ? (
                     newData[active].map((value: any, index: number) => (
                         <ListItem key={`list-item-${index}`}>
-                            {Object.keys(fields)?.map((val, i) => (
-                                <span key={`list-item-son-${i}`}>
-                                    {value[val]}
-                                </span>
-                            ))}
+                            <>
+                                {Object.keys(fields)?.map((val, i) => (
+                                    <span key={`list-item-son-${i}`}>
+                                        {value[val]}
+                                    </span>
+                                ))}
+
+                                {acceptButton && (
+                                    <button
+                                        type="button"
+                                        className="btn-accept"
+                                        onClick={() => acceptButton(value)}
+                                    >
+                                        accept
+                                    </button>
+                                )}
+                            </>
                         </ListItem>
                     ))
                 ) : (
-                    <h1>No data founded</h1>
+                    <h4>No data founded</h4>
                 )}
             </BottomItems>
 

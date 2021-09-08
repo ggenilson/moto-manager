@@ -47,6 +47,10 @@ const Dashboard: FC = () => {
         if (!token) {
             Router.push('/');
         }
+
+        if (getUserInfo()?.access === 'driver') {
+            dispatch(saveMenuClicked(MenuType.ATTENDANCE));
+        }
     }, []);
 
     return (

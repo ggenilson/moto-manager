@@ -1,17 +1,32 @@
 import { api as Api } from '../../../../services/api';
-import { UserInfoType } from '../../../../contexts/AuthContext/types';
+import { getUserInfo } from '../../../../utils';
+import { AttendanceReturnType } from './types';
 
-export async function getDrivers(): Promise<UserInfoType[] | null> {
+export async function getAttendances(): Promise<AttendanceReturnType[] | null> {
     try {
-        const userInfo = await Api.get('/attendance');
+        const attendanceInfo = await Api.get(
+            `/attendance${getUserInfo()?.access === 'driver' ? '/driver' : ''}`,
+        );
 
-        if (userInfo) {
-            return userInfo?.data;
+        if (attendanceInfo) {
+            return attendanceInfo?.data;
         }
 
         return null;
     } catch (err) {
         console.log('Error: ', err);
         return null;
+    }
+}
+
+export async function changeAttendanceStatus(id: string) {
+    try {
+        await Api.put(`/attendance/${id}/accept`);
+        await Api.put(`/attendance/${id}/finish`);
+
+        return true;
+    } catch (err) {
+        console.log('Error: ', err);
+        return false;
     }
 }

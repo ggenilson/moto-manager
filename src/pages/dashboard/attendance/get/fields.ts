@@ -1,9 +1,15 @@
 export const fields = {
-    name: {
-        title: 'Name',
+    street: {
+        title: 'Street',
     },
-    email: {
-        title: 'E-mail',
+    city: {
+        title: 'City',
+    },
+    state: {
+        title: 'State',
+    },
+    status: {
+        title: 'Status',
     },
     createdAt: {
         title: 'CreatedAt',

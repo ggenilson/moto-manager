@@ -35,4 +35,18 @@ export default createGlobalStyle`
       font-size: 14px;
       margin-top: 10px;
   }
+
+  .btn-accept {
+    width: 100px;
+    background-color: green;
+    border: none;
+    color: #fff;
+    height: 40px;
+    border-radius: 5px;
+    transition: 0.4s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+  }
 `;

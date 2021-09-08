@@ -1,38 +1,63 @@
 import React, { FC, useState, useEffect, useContext } from 'react';
 
 import List from '../../../../components/List';
-import Driver from '../index';
+import Attendance from '../index';
 
-import { UserInfoType } from '../../../../contexts/AuthContext/types';
 import { fields } from './fields';
-import { getDrivers } from './utils';
+import { changeAttendanceStatus, getAttendances } from './utils';
 import { InfoCardContext } from '../../../../contexts';
+import { AttendanceSimplifiedType } from './types';
+import { getUserInfo } from '../../../../utils';
 
 const Get: FC = () => {
-    const [drivers, setDrivers] = useState<UserInfoType[]>([]);
+    const [attendances, setAttendances] = useState<AttendanceSimplifiedType[]>(
+        [],
+    );
     const [whatRender, setWhatRender] = useState<number>(0);
 
     const { setText } = useContext(InfoCardContext);
 
-    useEffect(() => {
-        (async () => {
-            const res = await getDrivers();
+    async function getAllAttendances() {
+        const res = await getAttendances();
 
-            setDrivers(res || []);
-        })();
+        const newRes = res?.map(({ _id, origin, status, createdAt }) => ({
+            _id,
+            status,
+            ...origin,
+            createdAt,
+        }));
+
+        setAttendances(newRes || []);
+    }
+
+    useEffect(() => {
+        getAllAttendances();
 
         if (whatRender === 0) setText('View');
         else setText('Add');
     }, [whatRender]);
 
+    async function markAsAccepted(id: string) {
+        const res = await changeAttendanceStatus(id);
+
+        if (res) {
+            getAllAttendances();
+        }
+    }
+
     return whatRender === 0 ? (
         <List
-            data={drivers}
+            data={attendances}
             fields={fields}
             onAddClick={() => setWhatRender(1)}
+            acceptButton={e =>
+                getUserInfo()?.access === 'driver'
+                    ? markAsAccepted(e?._id)
+                    : null
+            }
         />
     ) : (
-        <Driver whatRender={e => setWhatRender(e)} />
+        <Attendance whatRender={e => setWhatRender(e)} />
     );
 };
 
