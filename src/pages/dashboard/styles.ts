@@ -6,7 +6,6 @@ export const Container = styled.div`
     height: auto;
     display: flex;
     justify-content: center;
-    // align-items: center;
     background-color: var(--color-primary);
     padding: 40px;
 `;
@@ -146,12 +145,6 @@ export const CenterSide = styled.div`
     border-radius: 10px;
     margin-left: 25px;
     padding: 29px;
-
-    h2 {
-        margin-bottom: 20px;
-        font-weigth: bold;
-        color: #9d9fb2;
-    }
 `;
 
 export const UserInfo = styled.div`
@@ -162,5 +155,22 @@ export const UserInfo = styled.div`
         &:nth-child(2) {
             font-size: 12px;
         }
+    }
+`;
+
+export const HeaderCenterSide = styled.div`
+    display: flex;
+    align-items: center;
+    color: #9d9fb2;
+    margin-bottom: 20px;
+
+    i {
+        font-size: 25px;
+        margin-right: 10px;
+    }
+
+    span {
+        font-size: 18px;
+        font-weight: bold;
     }
 `;

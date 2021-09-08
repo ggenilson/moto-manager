@@ -23,6 +23,7 @@ import {
     CenterSide,
     BodyItem,
     UserImg,
+    HeaderCenterSide,
 } from './styles';
 
 const Dashboard: FC = () => {
@@ -88,6 +89,11 @@ const Dashboard: FC = () => {
                     </LeftSide>
 
                     <CenterSide>
+                        <HeaderCenterSide>
+                            <i className="bx bx-info-square" />
+
+                            <span>View</span>
+                        </HeaderCenterSide>
                         <Driver />
                     </CenterSide>
                 </Body>
