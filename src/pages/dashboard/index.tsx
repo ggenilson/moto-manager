@@ -7,13 +7,13 @@ import { User } from '../../assets';
 
 import { AuthContext, InfoCardContext } from '../../contexts';
 import { ApplicationState, saveMenuClicked } from '../../state';
-import InfoCardProvider from '../../contexts/InfoCard';
 
 import { getUserInfo } from '../../utils';
 import { Options } from './utils';
 import { MenuType } from '../../@types';
 
 import Driver from './driver/get';
+import Attendance from './attendance/get';
 
 import {
     Container,
@@ -112,7 +112,7 @@ const Dashboard: FC = () => {
                         {menu === MenuType.DRIVER ? (
                             <Driver />
                         ) : menu === MenuType.ATTENDANCE ? (
-                            <h1>Attendance</h1>
+                            <Attendance />
                         ) : (
                             <></>
                         )}
