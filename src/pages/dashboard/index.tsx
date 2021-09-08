@@ -10,6 +10,7 @@ import { ApplicationState, saveMenuClicked } from '../../state';
 
 import { getUserInfo } from '../../utils';
 import { Options } from './utils';
+import { MenuType } from '../../@types';
 
 import Driver from './driver/get';
 
@@ -105,7 +106,14 @@ const Dashboard: FC = () => {
 
                             <span>View</span>
                         </HeaderCenterSide>
-                        <Driver />
+
+                        {menu === MenuType.DRIVER ? (
+                            <Driver />
+                        ) : menu === MenuType.ATTENDANCE ? (
+                            <h1>Attendance</h1>
+                        ) : (
+                            <></>
+                        )}
                     </CenterSide>
                 </Body>
             </Content>
