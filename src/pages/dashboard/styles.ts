@@ -23,10 +23,12 @@ export const Header = styled.div`
     width: 100%;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
-    padding-top: 10px;
+    padding: 35px 0;
     height: 50px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: #141432;
 
     img {
         width: 40px;
@@ -37,11 +39,47 @@ export const Header = styled.div`
 export const Left = styled.div`
     display: flex;
     align-items: center;
-    color: #fff;
+    color: #9d9fb2;
     margin-left: 20px;
+    padding-left: 10px;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 7px;
+        left: -10px;
+        background-color: var(--color-secondary);
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+    }
 
     h2 {
         font-weight: bold;
+    }
+`;
+
+export const UserImg = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 31px;
+        background-color: green;
+        width: 10px;
+        height: 10px;
+        border-radius: 15px;
+    }
+
+    img {
+        margin-right: 10px;
+        border-radius: 40px;
     }
 `;
 
@@ -50,20 +88,15 @@ export const Right = styled.div`
     align-items: center;
     width: 20%;
 
-    img {
-        margin-right: 10px;
-        border-radius: 40px;
-    }
-
     span {
         font-size: 16px;
-        color: #fff;
+        color: #9d9fb2;
     }
 
     i {
         margin-left: 25px;
         font-size: 25px;
-        color: #fff;
+        color: #9d9fb2;
         cursor: pointer;
     }
 `;
@@ -80,23 +113,26 @@ export const BodyItem = styled.div`
     height: 70px;
     display: flex;
     align-items: center;
-    border-radius: 29px;
+    border-radius: 15px;
     cursor: pointer;
     padding-left: 10px;
     margin-bottom: 20px;
 
-    ${props => props.className === 'active' && `background-color: #26264f;`}
+    ${props =>
+        props.className === 'active' &&
+        `background-color: var(--color-secondary);`}
 
     i {
         margin-right: 20px;
         margin-left: 10px;
         font-size: 20px;
-        color: #534eea;
+        color: #fff;
     }
 
     span {
         color: #9d9fb2;
         font-size: 20px;
+        font-weight: bold;
     }
 `;
 

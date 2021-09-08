@@ -23,6 +23,7 @@ import {
     LeftSide,
     CenterSide,
     BodyItem,
+    UserImg,
 } from './styles';
 
 const Dashboard: FC = () => {
@@ -46,7 +47,9 @@ const Dashboard: FC = () => {
                     </Left>
 
                     <Right>
-                        <img src={User} alt="user" />
+                        <UserImg>
+                            <img src={User} alt="user" />
+                        </UserImg>
 
                         <UserInfo>
                             <span>{getUserInfo()?.name}</span>

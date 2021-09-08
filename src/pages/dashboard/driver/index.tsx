@@ -29,6 +29,8 @@ const Driver: FC<DriverProps> = ({ whatRender = () => {} }) => {
 
         if (res) {
             toast.success('Sucess!');
+
+            whatRender(0);
             status(true);
 
             return;

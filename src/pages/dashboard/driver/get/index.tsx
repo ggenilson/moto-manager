@@ -17,7 +17,7 @@ const Get: FC = () => {
 
             setDrivers(res || []);
         })();
-    }, []);
+    }, [whatRender]);
 
     return whatRender === 0 ? (
         <List
