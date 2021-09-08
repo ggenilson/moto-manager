@@ -40,7 +40,7 @@ export const Left = styled.div`
     align-items: center;
     color: #9d9fb2;
     margin-left: 20px;
-    padding-left: 10px;
+    padding-left: 15px;
     position: relative;
 
     &:before {

@@ -106,7 +106,7 @@ const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
             <Footer>
                 <LeftFooter>
                     <span>
-                        Total: {active}/{newData?.length}
+                        Total: {active}/{newData?.length - 1}
                     </span>
 
                     <span>Items: {newData[active]?.length}</span>

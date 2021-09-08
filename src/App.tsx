@@ -1,8 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
 
 import AuthProvider from './contexts/AuthContext';
+import { store } from './state';
 
 import './styles/index.css';
 
@@ -13,13 +15,15 @@ import 'boxicons/css/boxicons.min.css';
 import GlobalStyle from './styles/global';
 
 const App = () => (
-    <AuthProvider>
-        <Router>
-            <Routes />
-            <ToastContainer />
-            <GlobalStyle />
-        </Router>
-    </AuthProvider>
+    <Provider store={store}>
+        <AuthProvider>
+            <Router>
+                <Routes />
+                <ToastContainer />
+                <GlobalStyle />
+            </Router>
+        </AuthProvider>
+    </Provider>
 );
 
 export default App;

@@ -1,7 +1,7 @@
 import { ActionType } from '../actionTypes';
 import { ActionProps } from '../actions';
 
-const initialState: string = 'driver';
+const initialState: string = 'Driver';
 
 const reducer = (state: string = initialState, action: ActionProps) => {
     switch (action.type) {

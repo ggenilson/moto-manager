@@ -1,10 +1,12 @@
 import React, { FC, useEffect, useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { parseCookies } from 'nookies';
 
 import { User } from '../../assets';
 
 import { AuthContext } from '../../contexts';
+import { ApplicationState, saveMenuClicked } from '../../state';
 
 import { getUserInfo } from '../../utils';
 import { Options } from './utils';
@@ -27,6 +29,8 @@ import {
 } from './styles';
 
 const Dashboard: FC = () => {
+    const menu = useSelector((state: ApplicationState) => state.menu);
+    const dispatch = useDispatch();
     const { signOut } = useContext(AuthContext);
     const Router = useHistory();
 
@@ -77,7 +81,14 @@ const Dashboard: FC = () => {
                                 verifyAccess(value.access) && (
                                     <BodyItem
                                         key={`body-item-${id}`}
-                                        className={value.status}
+                                        className={
+                                            menu === value.name ? 'active' : ''
+                                        }
+                                        onClick={() =>
+                                            dispatch(
+                                                saveMenuClicked(value.name),
+                                            )
+                                        }
                                     >
                                         <div>
                                             <i className={value.icon} />
