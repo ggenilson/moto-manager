@@ -24,7 +24,7 @@ const Input: FC<InputProps> = ({
     );
 
     const Input = () => (
-        <Container className={otherProps?.classNameContainer}>
+        <Container className={otherProps?.classnamecontainer}>
             <Separator>
                 <Icon>
                     <i className={`bx ${icon}`} aria-hidden="true" />

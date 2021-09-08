@@ -48,3 +48,30 @@ export const AddButton = styled.div`
         transform: scale(1.1);
     }
 `;
+
+export const Footer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const LeftFooter = styled.div`
+    display: flex;
+    justify-content: center
+    align-items: center;
+
+    span {
+        font-size: 15px;
+        color: #9d9fb2;
+        font-weight: bold;
+
+        &:first-child {
+            margin-right: 20px;
+        }
+    }
+`;
+
+export const RightFooter = styled.div`
+    display: flex;
+    align-items: center;
+`;

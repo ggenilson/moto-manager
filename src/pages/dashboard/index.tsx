@@ -9,7 +9,6 @@ import { AuthContext } from '../../contexts';
 import { getUserInfo } from '../../utils';
 import { Options } from './utils';
 
-// import Driver from './driver';
 import Driver from './driver/get';
 
 import {
@@ -29,6 +28,10 @@ import {
 const Dashboard: FC = () => {
     const { signOut } = useContext(AuthContext);
     const Router = useHistory();
+
+    function verifyAccess(access: string[]) {
+        return access.indexOf(getUserInfo()?.access || 'undefined') > -1;
+    }
 
     useEffect(() => {
         const { '@moto-user-auth-token': token } = parseCookies();
@@ -68,17 +71,20 @@ const Dashboard: FC = () => {
 
                 <Body>
                     <LeftSide>
-                        {Options.map((value, id) => (
-                            <BodyItem
-                                key={`body-item-${id}`}
-                                className={value.status}
-                            >
-                                <div>
-                                    <i className={value.icon} />
-                                </div>
-                                <span>{value.name}</span>
-                            </BodyItem>
-                        ))}
+                        {Options.map(
+                            (value, id) =>
+                                verifyAccess(value.access) && (
+                                    <BodyItem
+                                        key={`body-item-${id}`}
+                                        className={value.status}
+                                    >
+                                        <div>
+                                            <i className={value.icon} />
+                                        </div>
+                                        <span>{value.name}</span>
+                                    </BodyItem>
+                                ),
+                        ) || <></>}
                     </LeftSide>
 
                     <CenterSide>

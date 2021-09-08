@@ -1,7 +1,7 @@
 export type InputProps = {
     type: string;
     className?: string;
-    classNameContainer?: string;
+    classnamecontainer?: string;
     icon: string;
     name: string;
     label: string;

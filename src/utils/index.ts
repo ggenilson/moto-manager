@@ -17,3 +17,15 @@ export const getUserInfo = (): UserInfoType | null => {
 
     return null;
 };
+
+export function paginateData(data: any[], numberByPage: number) {
+    let dataDivided: any[] = [];
+    let newData = [...data];
+
+    while (newData.length) {
+        dataDivided = [...dataDivided, newData.slice(0, numberByPage)];
+        newData.splice(0, numberByPage);
+    }
+
+    return dataDivided;
+}

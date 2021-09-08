@@ -2,7 +2,8 @@ type ButtonTypes = 'reset' | 'submit' | 'button';
 
 export type ButtonProps = {
     value: string;
-    style: any;
+    style?: any;
     type: ButtonTypes;
     onClick?: () => void;
+    disabled?: boolean;
 };

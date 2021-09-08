@@ -8,10 +8,15 @@ const Button: FC<ButtonProps> = ({
     value = '',
     style,
     type,
+    disabled,
     onClick = () => {},
 }) => (
     <Container style={style}>
-        <button type={type} onClick={() => onClick()}>
+        <button
+            type={type}
+            onClick={() => !disabled && onClick()}
+            disabled={disabled}
+        >
             {value}
         </button>
     </Container>
