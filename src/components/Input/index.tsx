@@ -11,6 +11,9 @@ const Input: FC<InputProps> = ({
     icon,
     label,
     simpleInput,
+    value,
+    onChange = () => {},
+    onBlur = () => {},
     ...otherProps
 }) => {
     if (!otherProps?.name) {
@@ -44,6 +47,9 @@ const Input: FC<InputProps> = ({
                         type={type}
                         className={`form-input ${className && className}`}
                         placeholder={label}
+                        // value={value}
+                        // onChange={e => onChange(e)}
+                        // onBlur={e => onBlur(e)}
                         autoComplete="off"
                     />
                 )}

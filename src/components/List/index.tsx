@@ -17,10 +17,13 @@ import {
     LeftFooter,
     RightFooter,
 } from './styles';
+import { searchInArray } from './utils';
 
 const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
     const [active, setActive] = useState<number>(0);
     const [newData, setNewData] = useState<any[]>([]);
+    const [oldNewData, setOldNewData] = useState<any[]>([]);
+    const [searchText, setSearchText] = useState<string>('');
     const [disabledBack, setDisabledBack] = useState<boolean>(false);
     const [disabledNext, setDisabledNext] = useState<boolean>(false);
 
@@ -34,9 +37,15 @@ const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
         active !== newData.length - 1 && setActive(active + 1);
     }
 
-    useEffect(() => {
-        const newRes = paginateData(data, 5);
+    function handleInputSearchBlur(value: string) {
+        let newRes = searchInArray(oldNewData, value);
         setNewData(newRes);
+    }
+
+    useEffect(() => {
+        const newRes = paginateData(data, 4);
+        setNewData(newRes);
+        setOldNewData(newRes);
     }, [data]);
 
     useEffect(() => {
@@ -68,6 +77,9 @@ const List: FC<ListProps> = ({ data, fields, onAddClick = () => {} }) => {
                     label="Search..."
                     classnamecontainer="input-item"
                     simpleInput={true}
+                    // value={searchText}
+                    // onBlur={() => handleInputSearchBlur(searchText)}
+                    // onChange={e => setSearchText(e.target.value)}
                 />
 
                 <AddButton onClick={() => onAddClick()}>

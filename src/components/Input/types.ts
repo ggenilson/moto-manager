@@ -6,4 +6,7 @@ export type InputProps = {
     name: string;
     label: string;
     simpleInput?: boolean;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 };
