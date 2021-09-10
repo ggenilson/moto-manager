@@ -88,9 +88,13 @@ const List: FC<ListProps> = ({
                     // onChange={e => setSearchText(e.target.value)}
                 />
 
-                <AddButton onClick={() => onAddClick()}>
-                    <i className="bx bx-plus" />
-                </AddButton>
+                {getUserInfo()?.access !== 'driver' ? (
+                    <AddButton onClick={() => onAddClick()}>
+                        <i className="bx bx-plus" />
+                    </AddButton>
+                ) : (
+                    <></>
+                )}
             </TopItems>
 
             <HeaderList>
