@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 
 import { ListProps } from './types';
 
-import { paginateData } from '../../utils';
+import { getUserInfo, paginateData } from '../../utils';
 
 import Input from '../Input';
 import Button from '../Button';
@@ -112,15 +112,16 @@ const List: FC<ListProps> = ({
                                     </span>
                                 ))}
 
-                                {acceptButton && (
-                                    <button
-                                        type="button"
-                                        className="btn-accept"
-                                        onClick={() => acceptButton(value)}
-                                    >
-                                        accept
-                                    </button>
-                                )}
+                                {acceptButton &&
+                                    getUserInfo()?.access === 'driver' && (
+                                        <button
+                                            type="button"
+                                            className="btn-accept"
+                                            onClick={() => acceptButton(value)}
+                                        >
+                                            accept
+                                        </button>
+                                    )}
                             </>
                         </ListItem>
                     ))

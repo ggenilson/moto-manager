@@ -50,11 +50,7 @@ const Get: FC = () => {
             data={attendances}
             fields={fields}
             onAddClick={() => setWhatRender(1)}
-            acceptButton={e =>
-                getUserInfo()?.access === 'driver'
-                    ? markAsAccepted(e?._id)
-                    : null
-            }
+            acceptButton={e => markAsAccepted(e?._id)}
         />
     ) : (
         <Attendance whatRender={e => setWhatRender(e)} />
